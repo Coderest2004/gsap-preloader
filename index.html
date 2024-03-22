@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preloader</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="preloader_text">
+        <h1>Loading...</h1>
+      </div>
+    </div>
+
+    <div class="hero_section">
+      <h1 class="hero_title">Home Page</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script>
+      const tl = gsap.timeline();
+
+      tl.to("body", {
+        overflow: "hidden",
+      })
+        .from(".preloader_text h1", {
+          duration: 1.5,
+          y: 70,
+          skewY: 10,
+          ease: "Power3.easeOut",
+        })
+        .to(".preloader_text h1", {
+          duration: 0.75,
+          y: 70,
+          skewY: -20,
+          ease: "Power3.easeOut",
+        })
+        .to(".preloader", {
+          duration: 0.5,
+          height: "0vh",
+          ease: "Power3.easeOut",
+        })
+        .to("body", {
+          overflow: "auto",
+        })
+        .to(".preloader", {
+          display: "none",
+        });
+    </script>
+  </body>
+</html>
